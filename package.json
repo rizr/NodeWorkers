@@ -1,0 +1,26 @@
+{
+  "name": "node_cluster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rizr/NodeWorkers.git"
+  },
+  "author": "Eugene Dementev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rizr/NodeWorkers/issues"
+  },
+  "homepage": "https://github.com/rizr/NodeWorkers",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "diskdb": "^0.1.14",
+    "finalhandler": "^0.4.1",
+    "response": "^0.18.0",
+    "router": "^1.1.3"
+  }
+}
