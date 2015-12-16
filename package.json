@@ -20,6 +20,7 @@
     "body-parser": "^1.14.1",
     "diskdb": "^0.1.14",
     "finalhandler": "^0.4.1",
+    "jwt-simple": "^0.4.0",
     "response": "^0.18.0",
     "router": "^1.1.3"
   }

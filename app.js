@@ -46,6 +46,6 @@ if (cluster.isMaster) {
 else {
     process.on('message', function (message) {
         console.log(message);
-        process.send('worker with id: ' + process.pid + ' calculated data: ' + eval(message.data.task));
+        process.send('worker with id: ' + process.pid + ' calculated data: ' + eval(message.task));
     });
 }
