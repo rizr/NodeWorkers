@@ -26,17 +26,13 @@ Router.post('/api/auth/signin', function (req, res) {
         login: req.body.login,
         password: req.body.password
     });
-
     if (user) {
-
         user.token = jwt.encode({id: user.id}, 'sugar');
-
         response
             .json(user)
             .status(200)
             .pipe(res);
     } else {
-
         response
             .json({message: "User not found"})
             .status(403)
@@ -46,8 +42,12 @@ Router.post('/api/auth/signin', function (req, res) {
 
 Router.post('/api/worker/createTask', middleware.Auth, function (req, res) {
 
-    cluster.workers[1].send(req.body);
+    var message = {
+        task: req.body.task,
+        from: req.user
+    };
 
+    cluster.workers[1].send(message);
     response
         .json({message: "OK"})
         .status(200)
@@ -65,7 +65,6 @@ Router.get('/api/worker/status', middleware.Auth, function (req, res) {
             process_pid: cluster.workers[key].process.pid
         })
     }
-
     response
         .json(workers)
         .status(200)

@@ -20,12 +20,12 @@ function isAuth(req, res, next) {
                 .status(403)
                 .pipe(res);
         }
-    }
-    else
+    } else {
         response
             .json({message: "provide token"})
             .status(403)
             .pipe(res);
+    }
 }
 
 module.exports = {
