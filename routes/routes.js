@@ -22,6 +22,8 @@ Router.get('/ping', function (req, res) {
 
 Router.post('/api/auth/signin', function (req, res) {
 
+    //todo: password -> Bcrypt
+
     var user = db.users.findOne({
         login: req.body.login,
         password: req.body.password
@@ -44,7 +46,7 @@ Router.post('/api/worker/createTask', middleware.Auth, function (req, res) {
 
     var message = {
         task: req.body.task,
-        from: req.user
+        from: req.user.login
     };
 
     cluster.workers[1].send(message);

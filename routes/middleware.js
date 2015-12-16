@@ -12,8 +12,8 @@ function isAuth(req, res, next) {
         var user = db.users.findOne(id);
 
         if (user) {
-            next();
             req.user = user;
+            next();
         } else {
             response
                 .json({message: "please, login"})
