@@ -25,11 +25,12 @@ if (cluster.isMaster) {
     });
 
     http.createServer(function (req, res) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Headers', 'content-type, accept, Authorization');
         Router(req, res, finalhandler(req, res));
     }).listen(8888);
 
-}
-else {
+} else {
     process.on('message', function (message) {
         console.log(message);
         var result = eval(message.task);
