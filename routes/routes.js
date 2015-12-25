@@ -68,7 +68,7 @@ Router.get('/api/worker/status', middleware.Auth, function (req, res) {
         })
     }
     response
-        .json(workers)
+        .json({data: workers})
         .status(200)
         .pipe(res);
 });

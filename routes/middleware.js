@@ -6,9 +6,9 @@ var path = require('path');
 db.connect(path.resolve(__dirname + '/../localDb'), ['users']);
 
 function isAuth(req, res, next) {
-
     if (req.headers.authorization) {
-        var id = jwt.decode(req.headers.authorization, 'sugar');
+        var jwtReq = req.headers.authorization;
+        var id = jwt.decode(jwtReq, 'sugar');
         var user = db.users.findOne(id);
 
         if (user) {
