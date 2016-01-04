@@ -49,7 +49,9 @@ Router.post('/api/worker/createTask', middleware.Auth, function (req, res) {
         from: req.user.login
     };
 
-    cluster.workers[1].send(message);
+    var worker = Math.floor(Math.random() * (Object.keys(cluster.workers).length));
+
+    cluster.workers[worker].send(message);
     response
         .json({message: "OK"})
         .status(200)
